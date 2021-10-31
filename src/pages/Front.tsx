@@ -1,14 +1,16 @@
 import { Add } from '@mui/icons-material';
-import { Button } from '@mui/material';
+import { Button, Divider, Input } from '@mui/material';
 import React from 'react';
 import { AiFillAliwangwang, AiFillAmazonSquare } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { increment } from '@/store/couter.slice';
+import { increment } from '@/store/modules/couter.slice';
+import { setToken } from '@/store/modules/user.slice';
 const Front = () => {
   console.log('front rendered...');
   const counter = useAppSelector((state) => state.counter);
+  const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const history = useHistory();
   return (
@@ -29,6 +31,15 @@ const Front = () => {
           </Button>
         </p>
         <p className="mt-5">{counter.count}</p>
+        <Divider />
+        <Input
+          fullWidth
+          className={`mt-3`}
+          placeholder={`Change Token`}
+          value={user.token}
+          onChange={(event) => dispatch(setToken(event.target.value))}
+        />
+        <p>Token: {user.token}</p>
       </div>
 
       <div className="icons mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
