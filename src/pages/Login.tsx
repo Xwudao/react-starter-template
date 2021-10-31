@@ -2,6 +2,7 @@ import { Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 
 const Login = () => {
+  console.log('login rendered...');
   return (
     <div className="wrapper h-screen w-screen flex items-center justify-center p-10">
       <div

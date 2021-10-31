@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 const Admin = () => {
   const history = useHistory();
+  console.log('admin rendered...');
   return (
     <div className="wrapper h-screen w-screen text-center p-10">
       <div className="front w-96 mx-auto p-5 rounded border border-gray-300">

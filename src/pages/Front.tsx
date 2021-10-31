@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { increment } from '@/store/couter.slice';
 const Front = () => {
+  console.log('front rendered...');
   const counter = useAppSelector((state) => state.counter);
   const dispatch = useAppDispatch();
   const history = useHistory();
