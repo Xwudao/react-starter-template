@@ -1,7 +1,8 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import * as path from 'path';
-import usePluginImport from 'vite-plugin-importer';
+import { defineConfig } from 'vite';
+// import usePluginImport from 'vite-plugin-importer';
+import vitePluginImp from 'vite-plugin-imp';
 // https://vitejs.dev/config/
 const resolve = (p: string) => {
   return path.resolve(__dirname, p);
@@ -13,28 +14,21 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    usePluginImport({
-      libraryName: '@mui/icons-material',
-      libraryDirectory: '',
-      camel2DashComponentName: false,
+    vitePluginImp({
+      libList: [
+        {
+          libName: '@mui/icons-material',
+          camel2DashComponentName: false,
+          libDirectory: '',
+          style: () => '',
+        },
+        {
+          libName: '@mui/material',
+          camel2DashComponentName: false,
+          libDirectory: '',
+          style: () => '',
+        },
+      ],
     }),
-    usePluginImport({
-      libraryName: '@mui/material',
-      libraryDirectory: '',
-      camel2DashComponentName: false,
-    }),
-    // vitePluginImp({
-    //   libList: [
-    //     {
-    //       libName: '@mui/material',
-    //       style: (name) => {
-    //         if (name === 'col' || name === 'row') {
-    //           return '';
-    //         }
-    //         return `antd/es/${name}/style/index.less`;
-    //       },
-    //     },
-    //   ],
-    // }),
   ],
 });
