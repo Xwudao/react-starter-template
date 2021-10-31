@@ -1,10 +1,25 @@
+import { Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 
 const Login = () => {
   return (
-    <div className="wrapper h-screen w-screen text-center p-10">
-      <div className="front w-96 mx-auto p-5 rounded border border-gray-300">
-        <div className="font-bold text-lg text-gray-700">Login Page</div>
+    <div className="wrapper h-screen w-screen flex items-center justify-center p-10">
+      <div
+        className={`w-96 mx-auto bg-white shadow-md p-7 border border-gray-100 space-y-4`}>
+        <Typography variant="h4" gutterBottom component="div">
+          Login System
+        </Typography>
+        <TextField fullWidth label="Username" type="text" />
+        <TextField
+          fullWidth
+          className={`mt-4`}
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+        />
+        <Button variant={`contained`} className={`w-full mt-4`}>
+          Login
+        </Button>
       </div>
     </div>
   );
