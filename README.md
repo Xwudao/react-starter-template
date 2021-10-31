@@ -1,14 +1,14 @@
-# vite+vue3 Starter Template
+# Vite+React Starter Template
 
 use:
 
 - vite
-- vue3
+- react17
 - ts
-- element-plus
+- mui (material ui)
 - tailwindcss
-- pinia2 (vuex replacer)
-- vue-router@latest
+- redux/toolkit
+- react-router
 
 other:
 
@@ -20,25 +20,20 @@ other:
 
 Adaptation Webstorm 2021.2.3
 
-# Icon
+# Icons
 
-Use Iconify as svg icon source!
+The Icons use React-Icons:
 
-You can find many icons in:
+- https://react-icons.github.io/react-icons
 
-- https://icones.js.org/collection/all
-- https://icon-sets.iconify.design/
+# For Vue
 
-usage:
+see:
 
-```javascript
-<app-icon icon="ion:search" class="text-lg" />
-```
-
-the `ion:search` can find in two site above.
+- https://github.com/Xwudao/vite-vue-starter
 
 # Image
 
-![](images/img.png)
+![](images/1.png)
 
-![](images/img_1.png)
+![](images/2.png)

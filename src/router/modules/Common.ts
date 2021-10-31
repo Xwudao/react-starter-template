@@ -1,13 +1,19 @@
+import loadable from '@loadable/component';
+
+import Front from '../../pages/Front';
 import { RouteConfig } from '../types';
-import Admin from '../../pages/Admin';
 
 const routes: RouteConfig[] = [
   {
     path: '/',
+    component: Front,
+    order: 10,
     exact: true,
-    auth: 1,
-    backUrl: '/login',
-    component: Admin,
+  },
+  {
+    path: '/login',
+    order: 0,
+    component: loadable(() => import('@/pages/Login')),
   },
 ];
 export default routes;
