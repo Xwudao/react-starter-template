@@ -1,8 +1,12 @@
 import { Button } from '@mui/material';
-import React from 'react';
+import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Admin = () => {
+import renderRoutes from '@/router/renderRoutes';
+import { RouteConfigComponentProps } from '@/router/types';
+
+type IAdmin = {} & RouteConfigComponentProps;
+const Admin: FC<IAdmin> = (props) => {
   const history = useHistory();
   console.log('admin rendered...');
   return (
@@ -13,7 +17,11 @@ const Admin = () => {
 
       <div className="router mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
         <Button onClick={() => history.push('/')}>To Admin Page</Button>
+        <Button onClick={() => history.push('/admin/sub_page')}>To Sub Page</Button>
       </div>
+
+      {/*  render sub pages*/}
+      {props.route?.routes && renderRoutes(props.route.routes, props.route?.auth)}
     </div>
   );
 };

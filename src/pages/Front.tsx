@@ -1,14 +1,17 @@
 import { Add } from '@mui/icons-material';
 import { Button, Divider, Input } from '@mui/material';
-import React from 'react';
+import React, { FC } from 'react';
 import { AiFillAliwangwang, AiFillAmazonSquare } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { RouteConfigComponentProps } from '@/router/types';
 import { increment } from '@/store/modules/couter.slice';
 import { setToken } from '@/store/modules/user.slice';
-const Front = () => {
-  console.log('front rendered...');
+
+type IFront = {} & RouteConfigComponentProps;
+const Front: FC<IFront> = () => {
+  console.log('admin rendered...');
   const counter = useAppSelector((state) => state.counter);
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
@@ -50,7 +53,7 @@ const Front = () => {
         </p>
       </div>
 
-      <div className="router mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
+      <div className="flex flex-col router mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
         <Button onClick={() => history.push('/admin')}>To Admin Page</Button>
       </div>
     </div>
