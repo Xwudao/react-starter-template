@@ -1,8 +1,7 @@
 import react from '@vitejs/plugin-react';
 import * as path from 'path';
 import { defineConfig } from 'vite';
-// import usePluginImport from 'vite-plugin-importer';
-import vitePluginImp from 'vite-plugin-imp';
+import { injectHtml, minifyHtml } from 'vite-plugin-html';
 // https://vitejs.dev/config/
 const resolve = (p: string) => {
   return path.resolve(__dirname, p);
@@ -14,21 +13,12 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    vitePluginImp({
-      libList: [
-        {
-          libName: '@mui/icons-material',
-          camel2DashComponentName: false,
-          libDirectory: '',
-          style: () => '',
-        },
-        {
-          libName: '@mui/material',
-          camel2DashComponentName: false,
-          libDirectory: '',
-          style: () => '',
-        },
-      ],
+    minifyHtml(),
+    injectHtml({
+      data: {
+        title: 'React Starter Template',
+        injectScript: '',
+      },
     }),
   ],
 });

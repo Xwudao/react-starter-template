@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button } from '@douyinfe/semi-ui';
 import React, { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -15,9 +15,13 @@ const Admin: FC<IAdmin> = (props) => {
         <div className="font-bold text-lg text-gray-700">Admin Page</div>
       </div>
 
-      <div className="router mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
-        <Button onClick={() => history.push('/')}>To Admin Page</Button>
-        <Button onClick={() => history.push('/admin/sub_page')}>To Sub Page</Button>
+      <div className="router mt-4 flex flex-col space-y-4 w-96 mx-auto p-5 rounded border border-gray-300">
+        <Button theme={`solid`} onClick={() => history.push('/')}>
+          To Admin Page
+        </Button>
+        <Button theme={`solid`} onClick={() => history.push('/admin/sub_page')}>
+          To Sub Page
+        </Button>
       </div>
 
       {/*  render sub pages*/}

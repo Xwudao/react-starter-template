@@ -1,5 +1,4 @@
-import { Add } from '@mui/icons-material';
-import { Button, Divider, Input } from '@mui/material';
+import { Button, Input } from '@douyinfe/semi-ui';
 import React, { FC } from 'react';
 import { AiFillAliwangwang, AiFillAmazonSquare } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
@@ -25,22 +24,19 @@ const Front: FC<IFront> = () => {
       <div className="box mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
         <div className="title font-bold text-left mb-3">Redux/toolkit:</div>
         <p className={`space-x-3`}>
-          <Button variant={`contained`} onClick={() => dispatch(increment(1))}>
-            <Add />1
+          <Button theme={`solid`} onClick={() => dispatch(increment(1))}>
+            +1
           </Button>
-          <Button variant={`contained`} onClick={() => dispatch(increment(10))}>
-            <Add />
-            10
+          <Button theme={`solid`} onClick={() => dispatch(increment(10))}>
+            +10
           </Button>
         </p>
         <p className="mt-5">{counter.count}</p>
-        <Divider />
         <Input
-          fullWidth
           className={`mt-3`}
           placeholder={`Change Token`}
           value={user.token}
-          onChange={(event) => dispatch(setToken(event.target.value))}
+          onChange={(val) => dispatch(setToken(val))}
         />
         <p>Token: {user.token}</p>
       </div>
@@ -54,7 +50,9 @@ const Front: FC<IFront> = () => {
       </div>
 
       <div className="flex flex-col router mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
-        <Button onClick={() => history.push('/admin')}>To Admin Page</Button>
+        <Button theme={`solid`} onClick={() => history.push('/admin')}>
+          To Admin Page
+        </Button>
       </div>
     </div>
   );
