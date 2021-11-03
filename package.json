@@ -1,6 +1,15 @@
 {
   "name": "react-starter-template",
   "version": "0.0.0",
+  "keywords": [
+    "vite",
+    "template",
+    "react-template",
+    "react",
+    "tailwindcss",
+    "mui"
+  ],
+  "description": "A vite template with react,tailwindcss,mui,react-router,redux",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
