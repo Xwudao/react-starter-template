@@ -1,20 +1,19 @@
 import { Button, Input } from '@douyinfe/semi-ui';
 import React, { FC } from 'react';
 import { AiFillAliwangwang, AiFillAmazonSquare } from 'react-icons/ai';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
-import { RouteConfigComponentProps } from '@/router/types';
 import { increment } from '@/store/modules/couter.slice';
 import { setToken } from '@/store/modules/user.slice';
 
-type IFront = {} & RouteConfigComponentProps;
+type IFront = {};
 const Front: FC<IFront> = () => {
   console.log('admin rendered...');
   const counter = useAppSelector((state) => state.counter);
   const user = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-  const history = useHistory();
+  const nav = useNavigate();
   return (
     <div className="wrapper h-screen w-screen text-center p-10">
       <div className="front w-96 mx-auto p-5 rounded border border-gray-300">
@@ -50,7 +49,7 @@ const Front: FC<IFront> = () => {
       </div>
 
       <div className="flex flex-col router mt-4 w-96 mx-auto p-5 rounded border border-gray-300">
-        <Button theme={`solid`} onClick={() => history.push('/admin')}>
+        <Button theme={`solid`} onClick={() => nav('/admin')}>
           To Admin Page
         </Button>
       </div>
