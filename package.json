@@ -11,9 +11,15 @@
   ],
   "description": "A vite template with react,tailwindcss,mui,react-router,redux",
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint": "eslint ./src --ext .js,.ts,.tsx",
+    "test": "yarn lint --fix"
+  },
+  "lint-staged": {
+    "src/*.tsx?": "yarn test"
   },
   "dependencies": {
     "@douyinfe/semi-ui": "^2.0.1",
@@ -51,6 +57,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "husky": "^7.0.4",
     "postcss": "^7",
     "prettier": "^2.4.1",
     "redux-logger": "^3.0.6",

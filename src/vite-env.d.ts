@@ -5,6 +5,7 @@ interface ImportMetaEnv extends Readonly<Record<string, string | undefined | boo
 }
 
 //@ts-ignore
+// eslint-disable-next-line no-unused-vars
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
